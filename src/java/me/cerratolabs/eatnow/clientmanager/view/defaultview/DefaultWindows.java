@@ -1,4 +1,4 @@
-package view.defaultview;
+package me.cerratolabs.eatnow.clientmanager.view.defaultview;
 
 
 import javax.swing.*;
