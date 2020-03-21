@@ -1,6 +1,8 @@
 package me.cerratolabs.eatnow.clientmanager.view.defaultview;
 
 
+import sun.security.krb5.internal.rcache.DflCache;
+
 import javax.swing.*;
 import java.awt.*;
 
@@ -11,13 +13,22 @@ public class DefaultWindows extends JFrame {
 
     private JPanel logoPanel;
     private JPanel variablePanel;
+    private static DefaultWindows defaultWindows;
+    static {
+        defaultWindows = new DefaultWindows();
+    }
+    public static DefaultWindows getDefaultWindows(){
+        return defaultWindows;
+    }
 
-    public DefaultWindows() {
+    private DefaultWindows() {
         initComponents();
     }
 
-    public static void main(String[] args) {
-        new DefaultWindows().setVisible(true);
+    public void setVariablePanel(JPanel panel){
+        variablePanel.setVisible(false);
+        variablePanel = panel;
+        variablePanel.setVisible(true);
     }
 
     private void initComponents() {
@@ -29,7 +40,7 @@ public class DefaultWindows extends JFrame {
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new GridBagLayout());
 
-       GroupLayout variablePanelLayout = new GroupLayout(variablePanel);
+        GroupLayout variablePanelLayout = new GroupLayout(variablePanel);
         variablePanel.setLayout(variablePanelLayout);
         variablePanelLayout.setHorizontalGroup(
                 variablePanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
@@ -49,7 +60,7 @@ public class DefaultWindows extends JFrame {
         gridBagConstraints.insets = new Insets(6, 10, 11, 0);
         getContentPane().add(variablePanel, gridBagConstraints);
 
-       GroupLayout logoPanelLayout = new GroupLayout(logoPanel);
+        GroupLayout logoPanelLayout = new GroupLayout(logoPanel);
         logoPanel.setLayout(logoPanelLayout);
         logoPanelLayout.setHorizontalGroup(
                 logoPanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
