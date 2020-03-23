@@ -11,13 +11,12 @@ import java.awt.*;
  */
 public class DefaultWindows extends JFrame {
 
+    private static DefaultWindows defaultWindows = new DefaultWindows();
     private JPanel logoPanel;
     private JPanel variablePanel;
-    private static DefaultWindows defaultWindows;
-    static {
-        defaultWindows = new DefaultWindows();
-    }
-    public static DefaultWindows getInstance(){
+
+
+    public static DefaultWindows getInstance() {
         return defaultWindows;
     }
 
@@ -25,7 +24,7 @@ public class DefaultWindows extends JFrame {
         initComponents();
     }
 
-    public void setVariablePanel(JPanel panel){
+    public void setVariablePanel(JPanel panel) {
         variablePanel.setVisible(false);
         variablePanel = panel;
         variablePanel.setVisible(true);
