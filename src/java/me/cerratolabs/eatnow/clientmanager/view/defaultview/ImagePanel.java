@@ -7,22 +7,26 @@ import java.io.IOException;
 import javax.imageio.ImageIO;
 import javax.swing.JPanel;
 
-public class ImagePanel extends JPanel{
+public class ImagePanel extends JPanel {
 
     private BufferedImage image;
 
-    public ImagePanel() {
-       try {                
-          image = ImageIO.read(new File(ViewConstants.EATNOW_LOGO_PATH));
-       } catch (IOException ex) {
-           ex.printStackTrace();
-       }
+    public ImagePanel(File imagePath) {
+        try {
+            image = ImageIO.read(imagePath);
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+    }
+
+    public ImagePanel(String imagePath) {
+        this(new File(imagePath));
     }
 
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
-        g.drawImage(image, 0, 0, this);         
+        g.drawImage(image, 0, 0, this);
     }
 
 }
