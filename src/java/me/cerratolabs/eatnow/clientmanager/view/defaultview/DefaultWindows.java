@@ -17,7 +17,7 @@ public class DefaultWindows extends JFrame {
     static {
         defaultWindows = new DefaultWindows();
     }
-    public static DefaultWindows getDefaultWindows(){
+    public static DefaultWindows getInstance(){
         return defaultWindows;
     }
 
